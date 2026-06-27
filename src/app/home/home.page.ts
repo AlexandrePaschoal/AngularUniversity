@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UniversityService } from '../services/university';
 import { University } from '../models/university';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,10 @@ export class HomePage {
   universities: University[] = [];
   loading = false;
 
-  constructor(private universityService: UniversityService) {}
+  constructor(
+    private universityService: UniversityService,
+    private router: Router,
+  ) {}
 
   searchUniversities() {
     if (!this.country.trim()) {
@@ -23,11 +27,18 @@ export class HomePage {
     this.loading = true;
 
     this.universityService.getUniversities(this.country).subscribe({
-      next: (data) => {
-        this.universities = data;
+      next: (data: University[]) => {
         this.loading = false;
+
+        this.router.navigate(['/results'], {
+          state: {
+            universities: data,
+            country: this.country,
+          },
+        });
       },
-      error: (err) => {
+
+      error: (err: any) => {
         console.error(err);
         this.loading = false;
       },

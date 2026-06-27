@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { University } from '../../models/university';
 
 @Component({
   selector: 'app-results',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class ResultsPage implements OnInit {
+  universities: University[] = [];
+  country: string = '';
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    const navigation = history.state;
+
+    this.universities = navigation.universities || [];
+
+    this.country = navigation.country || '';
+  }
 }
