@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Buscador de Universidades </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input label="País" labelPlacement="floating" [(ngModel)]="country">
+    </ion-input>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-button
+    expand="block"
+    class="ion-margin-top"
+    (click)="searchUniversities()"
+  >
+   Buscar
+  </ion-button>
+
+  <ion-spinner *ngIf="loading" class="ion-margin-top"> </ion-spinner>
+
+  <ion-list *ngIf="universities.length">
+    <ion-item *ngFor="let university of universities">
+      <ion-label>
+        <h2>{{ university.name }}</h2>
+        <p>{{ university.country }}</p>
+
+        <a [href]="university.web_pages[0]" target="_blank">
+          {{ university.web_pages[0] }}
+        </a>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
