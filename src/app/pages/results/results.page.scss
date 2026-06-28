@@ -44,6 +44,24 @@ ion-back-button {
   display: flex;
   align-items: center;
   justify-content: center;
+
+
+    animation:
+    statsAppear
+    .6s ease;
+}
+
+@keyframes statsAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .stat-card ion-card-content {
@@ -163,6 +181,7 @@ ion-segment-button {
 
   min-height: 42px;
 }
+
 
 /* Responsividade */
 
