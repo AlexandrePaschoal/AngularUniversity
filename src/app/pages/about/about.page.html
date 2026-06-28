@@ -1,65 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Sobre
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" routerLink="/home">
+        <ion-icon name="chevron-back-outline"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title> Sobre </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <div class="about-container">
+    <div class="logo">🌎</div>
 
-  <ion-card>
+    <h1>Angular<span>University</span></h1>
 
-    <ion-card-header>
-      <ion-card-title>
-        Buscador de Universidades
-      </ion-card-title>
-    </ion-card-header>
+    <p class="tagline">Explore universidades ao redor do mundo</p>
 
-    <ion-card-content>
+    <ion-card class="about-card">
+      <ion-card-header>
+        <ion-card-title> Sobre o projeto </ion-card-title>
+      </ion-card-header>
 
-      <p>
-        Aplicação desenvolvida utilizando
-        Ionic, Angular e TypeScript.
-      </p>
+      <ion-card-content>
+        AngularUniversity é uma aplicação desenvolvida com Angular e Ionic que
+        permite explorar universidades ao redor do mundo utilizando dados
+        provenientes de uma API pública. O projeto oferece funcionalidades como
+        pesquisa por país, visualização de resultados, sistema de favoritos,
+        histórico de pesquisas e uma interface moderna e responsiva. Seu
+        objetivo é demonstrar a aplicação de conceitos de desenvolvimento
+        frontend, consumo de APIs REST, gerenciamento de estado e construção de
+        experiências mobile utilizando tecnologias web modernas.
+      </ion-card-content>
+    </ion-card>
 
-      <p>
-        O sistema consome a API pública
-        Hipolabs Universities API,
-        permitindo pesquisar universidades
-        por país, salvar favoritos,
-        consultar histórico de pesquisas
-        e visualizar estatísticas.
-      </p>
+    <ion-card class="about-card">
+      <ion-card-header>
+        <ion-card-title> Tecnologias </ion-card-title>
+      </ion-card-header>
 
-    </ion-card-content>
+      <ion-card-content>
+        <div class="tech-item">⚡ Angular 20</div>
 
-  </ion-card>
+        <div class="tech-item">📱 Ionic</div>
 
-  <ion-card>
+        <div class="tech-item">🔷 TypeScript</div>
 
-    <ion-card-header>
-      <ion-card-title>
-        Desenvolvedor
-      </ion-card-title>
-    </ion-card-header>
+        <div class="tech-item">🌐 REST API</div>
+      </ion-card-content>
+    </ion-card>
 
-    <ion-card-content>
+    <ion-card class="about-card">
+      <ion-card-header>
+        <ion-card-title> Desenvolvedor </ion-card-title>
+      </ion-card-header>
 
-      <p>
-        Nome: Alexandre Paschoal
-      </p>
+      <ion-card-content>
+        <h3>Alexandre Paschoal</h3>
 
-      <p>
-        Curso: Análise e Desenvolvimento de Sistemas
-      </p>
-
-      <p>
-        Disciplina: Desenvolvimento Mobile
-      </p>
-
-    </ion-card-content>
-
-  </ion-card>
-
+        <p>Projeto acadêmico desenvolvido com Angular e Ionic.</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
