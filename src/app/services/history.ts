@@ -8,18 +8,19 @@ export class HistoryService {
 
   constructor() {}
 
-  getHistory(): string[] {
+  getHistory(): any[] {
     return JSON.parse(localStorage.getItem(this.storageKey) || '[]');
   }
 
   addSearch(country: string): void {
     const history = this.getHistory();
 
-    if (!history.includes(country)) {
-      history.unshift(country);
+    history.unshift({
+      country: country,
+      date: new Date().toLocaleString(),
+    });
 
-      localStorage.setItem(this.storageKey, JSON.stringify(history));
-    }
+    localStorage.setItem(this.storageKey, JSON.stringify(history));
   }
 
   clearHistory(): void {

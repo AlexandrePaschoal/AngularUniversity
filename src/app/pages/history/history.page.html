@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Histórico
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-button
+    expand="block"
+    color="danger"
+    (click)="clearHistory()">
+
+    Limpar Histórico
+
+  </ion-button>
+
+  <ion-list>
+
+    <ion-item
+      *ngFor="let item of history">
+
+      <ion-label>
+
+        <h2>
+          {{ item.country }}
+        </h2>
+
+        <p>
+          {{ item.date }}
+        </p>
+
+      </ion-label>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
