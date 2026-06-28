@@ -10,13 +10,65 @@
     </ion-input>
   </ion-item>
 
-  <ion-button
-    expand="block"
-    class="ion-margin-top"
-    (click)="searchUniversities()"
-  >
-    Buscar
-  </ion-button>
+<ion-button
+  expand="block"
+  class="ion-margin-top"
+  (click)="searchUniversities()">
+
+  <ion-icon
+    name="search-outline"
+    slot="start">
+  </ion-icon>
+
+  Buscar
+
+</ion-button>
+
+<h2 class="ion-padding-top">
+  Menu
+</h2>
+
+<ion-card button routerLink="/favorites">
+
+  <ion-card-header>
+    <ion-card-title>
+      ⭐ Favoritos
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    Visualizar universidades favoritas
+  </ion-card-content>
+
+</ion-card>
+
+<ion-card button routerLink="/history">
+
+  <ion-card-header>
+    <ion-card-title>
+      🕒 Histórico
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    Consultar pesquisas realizadas
+  </ion-card-content>
+
+</ion-card>
+
+<ion-card button routerLink="/about">
+
+  <ion-card-header>
+    <ion-card-title>
+      ℹ️ Sobre
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    Informações do projeto
+  </ion-card-content>
+
+</ion-card>
 
   <ion-spinner *ngIf="loading" class="ion-margin-top"> </ion-spinner>
 
