@@ -1,9 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button fill="clear" routerLink="/home">
-        <ion-icon name="chevron-back-outline"> </ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="/home"> </ion-back-button>
     </ion-buttons>
 
     <ion-title> 🕒 Histórico </ion-title>
@@ -29,14 +27,25 @@
 
             <p>{{ item.total }} universidades encontradas</p>
           </div>
-
-          <div class="history-icon">🕒</div>
         </div>
 
         <div class="date">{{ item.date }}</div>
       </ion-card-content>
     </ion-card>
   </ion-list>
+
+  <ion-button
+    *ngIf="history.length"
+    expand="block"
+    fill="outline"
+    color="danger"
+    class="clear-history-btn"
+    (click)="clearHistory()"
+  >
+    <ion-icon name="trash-outline" slot="start"> </ion-icon>
+
+    Limpar histórico
+  </ion-button>
 
   <div class="empty-state" *ngIf="history.length === 0">
     <h2>Nenhuma pesquisa encontrada</h2>

@@ -12,15 +12,47 @@ ion-toolbar {
 }
 
 .greeting {
-  color: #7b8794;
-  margin-bottom: 5px;
+  color: #94a3b8;
+  font-size: 18px;
+  margin-bottom: 10px;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  animation: welcomeAppear 0.8s ease forwards;
+}
+
+@keyframes welcomeAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroAppear {
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
 }
 
 .hero h1 {
   color: white;
+
   font-size: 34px;
+
   font-weight: 700;
+
   line-height: 1.2;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  animation: heroAppear 0.9s ease 0.3s forwards;
 }
 
 .hero span {
@@ -118,13 +150,10 @@ p {
 
   letter-spacing: -1px;
 
-  animation:
-    glowIn
-    .8s ease;
+  animation: glowIn 0.8s ease;
 }
 
 @keyframes glowIn {
-
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -136,5 +165,4 @@ p {
     transform: translateY(0);
     filter: blur(0);
   }
-
 }

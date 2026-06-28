@@ -1,48 +1,98 @@
 <ion-header>
   <ion-toolbar>
+
     <ion-buttons slot="start">
-      <ion-button fill="clear" routerLink="/home">
-        <ion-icon name="chevron-back-outline"> </ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="/home">
+      </ion-back-button>
     </ion-buttons>
 
-    <ion-title> ⭐ Favoritos </ion-title>
+    <ion-title>
+      ⭐ Favoritos
+    </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <div class="page-header">
-    <p class="subtitle">Universidades salvas</p>
+
+    <p class="subtitle">
+      Universidades salvas
+    </p>
 
     <h1>
       Seus
       <span>favoritos</span>
     </h1>
+
   </div>
 
   <ion-list *ngIf="favorites.length">
-    <ion-card *ngFor="let university of favorites" class="favorite-card">
-      <ion-card-content>
-        <div class="card-header">
-          <div>
-            <h2>{{ university.name }}</h2>
 
-            <p>{{ university.country }}</p>
+    <ion-card
+      *ngFor="let university of favorites"
+      class="favorite-card">
+
+      <ion-card-content>
+
+        <div class="card-header">
+
+          <div>
+
+            <h2>
+              {{ university.name }}
+            </h2>
+
+            <p>
+              {{ university.country }}
+            </p>
+
           </div>
 
-          <div class="favorite-icon">⭐</div>
+          <div class="actions">
+
+            <ion-button
+              fill="clear"
+              color="danger"
+              (click)="removeFavorite(university.name)">
+
+              <ion-icon
+                name="trash-outline">
+              </ion-icon>
+
+            </ion-button>
+
+          </div>
+
         </div>
 
-        <a [href]="university.web_pages[0]" target="_blank">
+        <a
+          [href]="university.web_pages[0]"
+          target="_blank">
+
           {{ university.web_pages[0] }}
+
         </a>
+
       </ion-card-content>
+
     </ion-card>
+
   </ion-list>
 
-  <div class="empty-state" *ngIf="favorites.length === 0">
-    <h2>Nenhum favorito</h2>
+  <div
+    class="empty-state"
+    *ngIf="favorites.length === 0">
 
-    <p>Adicione universidades na página de resultados.</p>
+    <h2>
+      Nenhum favorito encontrado
+    </h2>
+
+    <p>
+      Adicione universidades na página de resultados.
+    </p>
+
   </div>
+
 </ion-content>

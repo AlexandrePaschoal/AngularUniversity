@@ -89,8 +89,30 @@ ion-list {
   margin-bottom: 15px;
 }
 
-.favorite-icon {
-  font-size: 28px;
+
+/* Ações do card */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions ion-button {
+
+  --padding-start: 0;
+  --padding-end: 0;
+
+  transition:
+    transform .2s ease;
+}
+
+.actions ion-button:hover {
+  transform: scale(1.15);
+}
+
+.actions ion-button:active {
+  transform: scale(.9);
 }
 
 /* Conteúdo */

@@ -1,16 +1,16 @@
 /* Tema */
 
 ion-content {
-  --background: #0D1220;
+  --background: #0d1220;
 }
 
 ion-toolbar {
-  --background: #0D1220;
+  --background: #0d1220;
   --color: white;
 }
 
 ion-list {
-  background: transparent;
+  background: transparent !important;
   padding: 0;
 }
 
@@ -25,7 +25,7 @@ ion-back-button {
 }
 
 .subtitle {
-  color: #94A3B8;
+  color: #94a3b8;
   margin-bottom: 5px;
 }
 
@@ -37,32 +37,25 @@ ion-back-button {
 }
 
 .page-header span {
-  color: #3B6FFF;
+  color: #3b6fff;
 }
 
 /* Cards */
 
 .history-card {
-  background: linear-gradient(
-    135deg,
-    #111827,
-    #1A2238
-  );
+  background: linear-gradient(135deg, #111827, #1a2238);
 
   border-radius: 20px;
 
-  border: 1px solid
-    rgba(59,111,255,.15);
+  border: 1px solid rgba(59, 111, 255, 0.15);
 
-  box-shadow:
-    0 8px 20px
-    rgba(0,0,0,.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 
   margin-bottom: 18px;
 
   overflow: hidden;
 
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .history-card:hover {
@@ -92,13 +85,13 @@ ion-back-button {
 }
 
 .card-header p {
-  color: #94A3B8;
+  color: #94a3b8;
   margin-top: 6px;
   margin-bottom: 0;
 }
 
 .date {
-  color: #64748B;
+  color: #64748b;
   font-size: 14px;
 }
 
@@ -114,13 +107,12 @@ ion-back-button {
 }
 
 .empty-state p {
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 /* Responsividade */
 
 @media (min-width: 768px) {
-
   .history-card {
     max-width: 900px;
     margin: 0 auto 20px auto;
@@ -130,4 +122,29 @@ ion-back-button {
     max-width: 900px;
     margin: 0 auto 25px auto;
   }
+}
+
+/* Botão limpar histórico */
+
+.clear-history-btn {
+
+  display: block;
+
+  max-width: 300px;
+
+  margin: 30px auto;
+
+  --background: transparent !important;
+
+  --background-hover: transparent !important;
+
+  --background-focused: transparent !important;
+
+  --background-activated: transparent !important;
+
+  --box-shadow: none;
+
+  --color: #FF6B35;
+
+  font-weight: 600;
 }

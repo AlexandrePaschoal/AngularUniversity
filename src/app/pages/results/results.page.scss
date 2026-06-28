@@ -13,6 +13,15 @@ ion-back-button {
   --color: white;
 }
 
+/* Remove backgrounds padrão do Ionic */
+
+ion-list,
+ion-grid,
+ion-row,
+ion-col {
+  background: transparent;
+}
+
 /* Dashboard */
 
 .stats-grid {
@@ -25,7 +34,7 @@ ion-back-button {
   background: linear-gradient(
     135deg,
     #111827,
-    #1a2238
+    #1A2238
   );
 
   border-radius: 18px;
@@ -45,8 +54,7 @@ ion-back-button {
   align-items: center;
   justify-content: center;
 
-
-    animation:
+  animation:
     statsAppear
     .6s ease;
 }
@@ -93,57 +101,7 @@ ion-back-button {
   letter-spacing: 2px;
 }
 
-ion-item {
-
-  --background: #111827;
-
-  --color: white;
-
-  margin-bottom: 14px;
-
-  border-radius: 18px;
-
-  border: 1px solid
-    rgba(59,111,255,.12);
-
-  --padding-top: 12px;
-  --padding-bottom: 12px;
-
-  box-shadow:
-    0 4px 12px
-    rgba(0,0,0,.15);
-}
-
-ion-label h2 {
-
-  color: white;
-
-  font-size: 18px;
-
-  font-weight: 600;
-
-  margin-bottom: 6px;
-}
-
-ion-label p {
-
-  color: #94A3B8;
-}
-
-a {
-
-  color: #3B6FFF;
-
-  text-decoration: none;
-
-  font-weight: 500;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Campo de busca local */
+/* Busca */
 
 ion-searchbar {
 
@@ -158,7 +116,7 @@ ion-searchbar {
   margin-bottom: 20px;
 }
 
-/* Segmento de ordenação */
+/* Ordenação */
 
 ion-segment {
 
@@ -182,6 +140,112 @@ ion-segment-button {
   min-height: 42px;
 }
 
+/* Cards das universidades */
+
+.university-card {
+
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1A2238
+  );
+
+  border-radius: 20px;
+
+  border: 1px solid
+    rgba(59,111,255,.15);
+
+  box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.25);
+
+  margin-bottom: 18px;
+
+  overflow: hidden;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.university-card:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px
+    rgba(0,0,0,.30);
+}
+
+.university-card ion-card-content {
+  padding: 20px;
+}
+
+/* Conteúdo do card */
+
+.card-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 20px;
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card-info h2 {
+
+  color: white;
+
+  font-size: 22px;
+
+  font-weight: 600;
+
+  margin: 0 0 8px 0;
+}
+
+.card-info p {
+
+  color: #94A3B8;
+
+  margin: 0 0 10px 0;
+}
+
+.card-info a {
+
+  color: #3B6FFF;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  word-break: break-word;
+}
+
+.card-info a:hover {
+  text-decoration: underline;
+}
+
+/* Botão favorito */
+
+.university-card ion-button {
+
+  transition:
+    transform .2s ease;
+}
+
+.university-card ion-button:hover {
+  transform: scale(1.15);
+}
+
+.university-card ion-button:active {
+  transform: scale(.9);
+}
 
 /* Responsividade */
 
@@ -191,14 +255,28 @@ ion-segment-button {
     font-size: 42px;
   }
 
-  ion-item {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 900px;
+  .stats-grid {
+
+    max-width: 1000px;
+
+    margin:
+      0 auto 25px auto;
   }
 
-  .stats-grid {
-    max-width: 1000px;
-    margin: 0 auto 20px auto;
+  ion-searchbar,
+  ion-segment {
+
+    max-width: 900px;
+
+    margin:
+      0 auto 20px auto;
+  }
+
+  .university-card {
+
+    max-width: 900px;
+
+    margin:
+      0 auto 18px auto;
   }
 }
