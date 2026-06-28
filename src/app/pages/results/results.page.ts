@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { University } from '../../models/university';
+import { FavoritesService } from '../../services/favorites';
 
 @Component({
   selector: 'app-results',
@@ -11,7 +12,11 @@ export class ResultsPage implements OnInit {
   universities: University[] = [];
   country: string = '';
 
-  constructor() {}
+  constructor(private favoritesService: FavoritesService) {}
+
+  addFavorite(university: University) {
+    this.favoritesService.addFavorite(university);
+  }
 
   ngOnInit(): void {
     const navigation = history.state;

@@ -13,7 +13,6 @@
     <ion-item *ngFor="let university of universities">
 
       <ion-label>
-
         <h2>{{ university.name }}</h2>
 
         <p>{{ university.country }}</p>
@@ -21,12 +20,17 @@
         <a
           [href]="university.web_pages[0]"
           target="_blank">
-
           {{ university.web_pages[0] }}
-
         </a>
 
       </ion-label>
+
+      <ion-button
+        slot="end"
+        fill="clear"
+        (click)="addFavorite(university)">
+        ⭐
+      </ion-button>
 
     </ion-item>
 

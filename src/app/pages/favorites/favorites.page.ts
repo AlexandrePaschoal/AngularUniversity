@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { University } from '../../models/university';
+import { FavoritesService } from '../../services/favorites';
 
 @Component({
   selector: 'app-favorites',
@@ -7,7 +9,25 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class FavoritesPage implements OnInit {
-  constructor() {}
+  favorites: University[] = [];
 
-  ngOnInit() {}
+  constructor(private favoritesService: FavoritesService) {}
+
+  ngOnInit() {
+    this.loadFavorites();
+  }
+
+  ionViewWillEnter() {
+    this.loadFavorites();
+  }
+
+  loadFavorites() {
+    this.favorites = this.favoritesService.getFavorites();
+  }
+
+  removeFavorite(name: string) {
+    this.favoritesService.removeFavorite(name);
+
+    this.loadFavorites();
+  }
 }
