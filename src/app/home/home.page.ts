@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UniversityService } from '../services/university';
 import { University } from '../models/university';
 import { Router } from '@angular/router';
+import { HistoryService } from '../services/history';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomePage {
 
   constructor(
     private universityService: UniversityService,
+    private historyService: HistoryService,
     private router: Router,
   ) {}
 
@@ -29,6 +31,8 @@ export class HomePage {
     this.universityService.getUniversities(this.country).subscribe({
       next: (data: University[]) => {
         this.loading = false;
+
+        this.historyService.addSearch(this.country);
 
         this.router.navigate(['/results'], {
           state: {
