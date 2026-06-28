@@ -32,7 +32,7 @@ export class HomePage {
       next: (data: University[]) => {
         this.loading = false;
 
-        this.historyService.addSearch(this.country);
+        this.historyService.addSearch(this.country, data.length);
 
         this.router.navigate(['/results'], {
           state: {

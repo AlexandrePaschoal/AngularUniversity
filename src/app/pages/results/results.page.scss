@@ -1,0 +1,181 @@
+/* Tema geral */
+
+ion-content {
+  --background: #0D1220;
+}
+
+ion-toolbar {
+  --background: #0D1220;
+  --color: white;
+}
+
+/* Dashboard */
+
+.stats-grid {
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1a2238
+  );
+
+  border-radius: 18px;
+
+  border: 1px solid
+    rgba(59,111,255,.20);
+
+  box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.25);
+
+  margin: 0;
+
+  min-height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card ion-card-content {
+  width: 100%;
+  text-align: center;
+}
+
+.number {
+
+  color: #3B6FFF;
+
+  font-size: 38px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.label {
+
+  color: #9CA3AF;
+
+  margin-top: 12px;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+ion-item {
+
+  --background: #111827;
+
+  --color: white;
+
+  margin-bottom: 14px;
+
+  border-radius: 18px;
+
+  border: 1px solid
+    rgba(59,111,255,.12);
+
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+
+  box-shadow:
+    0 4px 12px
+    rgba(0,0,0,.15);
+}
+
+ion-label h2 {
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  margin-bottom: 6px;
+}
+
+ion-label p {
+
+  color: #94A3B8;
+}
+
+a {
+
+  color: #3B6FFF;
+
+  text-decoration: none;
+
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Campo de busca local */
+
+ion-searchbar {
+
+  --background: #111827;
+
+  --color: white;
+
+  --placeholder-color: #9CA3AF;
+
+  border-radius: 16px;
+
+  margin-bottom: 20px;
+}
+
+/* Segmento de ordenação */
+
+ion-segment {
+
+  background: #111827;
+
+  border-radius: 14px;
+
+  padding: 4px;
+
+  margin-bottom: 20px;
+}
+
+ion-segment-button {
+
+  --color: #9CA3AF;
+
+  --color-checked: white;
+
+  --indicator-color: #3B6FFF;
+
+  min-height: 42px;
+}
+
+/* Responsividade */
+
+@media (min-width: 768px) {
+
+  .number {
+    font-size: 42px;
+  }
+
+  ion-item {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+  }
+
+  .stats-grid {
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+  }
+}

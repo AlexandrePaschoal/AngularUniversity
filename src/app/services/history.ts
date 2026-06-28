@@ -12,17 +12,17 @@ export class HistoryService {
     return JSON.parse(localStorage.getItem(this.storageKey) || '[]');
   }
 
-  addSearch(country: string): void {
+  addSearch(country: string, total: number): void {
     const history = this.getHistory();
 
     history.unshift({
-      country: country,
+      country,
+      total,
       date: new Date().toLocaleString(),
     });
 
     localStorage.setItem(this.storageKey, JSON.stringify(history));
   }
-
   clearHistory(): void {
     localStorage.removeItem(this.storageKey);
   }

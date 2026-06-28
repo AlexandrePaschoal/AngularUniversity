@@ -1,0 +1,159 @@
+/* Tema geral */
+
+ion-content {
+  --background: #0D1220;
+}
+
+ion-toolbar {
+  --background: #0D1220;
+  --color: white;
+}
+
+/* Remove fundo cinza do Ionic */
+
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+/* Cabeçalho */
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.subtitle {
+  color: #94A3B8;
+  margin-bottom: 5px;
+}
+
+.page-header h1 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-header span {
+  color: #FFD346;
+}
+
+/* Cards */
+
+.favorite-card {
+
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1A2238
+  );
+
+  border-radius: 20px;
+
+  border: 1px solid
+    rgba(59,111,255,.15);
+
+  box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.25);
+
+  margin-bottom: 18px;
+
+  overflow: hidden;
+
+  transition: transform .2s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-2px);
+}
+
+.favorite-card ion-card-content {
+  padding: 20px;
+}
+
+/* Cabeçalho do card */
+
+.card-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.favorite-icon {
+  font-size: 28px;
+}
+
+/* Conteúdo */
+
+.card-header h2 {
+
+  color: white;
+
+  margin: 0;
+
+  font-size: 22px;
+
+  font-weight: 600;
+}
+
+.card-header p {
+
+  color: #94A3B8;
+
+  margin-top: 6px;
+
+  margin-bottom: 0;
+}
+
+.favorite-card a {
+
+  color: #3B6FFF;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  word-break: break-word;
+}
+
+.favorite-card a:hover {
+  text-decoration: underline;
+}
+
+/* Estado vazio */
+
+.empty-state {
+
+  text-align: center;
+
+  margin-top: 120px;
+}
+
+.empty-state h2 {
+  color: white;
+}
+
+.empty-state p {
+  color: #94A3B8;
+}
+
+/* Responsividade */
+
+@media (min-width: 768px) {
+
+  .favorite-card {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+  }
+
+  .page-header {
+    max-width: 900px;
+    margin: 0 auto 25px auto;
+  }
+}

@@ -1,41 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Histórico
-    </ion-title>
+    <ion-title> 🕒 Histórico </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <div class="page-header">
+    <p class="subtitle">Pesquisas realizadas</p>
 
-  <ion-button
-    expand="block"
-    color="danger"
-    (click)="clearHistory()">
+    <h1>
+      Seu
+      <span>histórico</span>
+    </h1>
+  </div>
 
-    Limpar Histórico
+  <ion-list *ngIf="history.length">
+    <ion-card *ngFor="let item of history" class="history-card">
+      <ion-card-content>
+        <div class="card-header">
+          <div>
+            <h2>{{ item.country }}</h2>
 
-  </ion-button>
+            <p>{{ item.total }} universidades encontradas</p>
+          </div>
 
-  <ion-list>
+          <div class="history-icon">🕒</div>
+        </div>
 
-    <ion-item
-      *ngFor="let item of history">
-
-      <ion-label>
-
-        <h2>
-          {{ item.country }}
-        </h2>
-
-        <p>
-          {{ item.date }}
-        </p>
-
-      </ion-label>
-
-    </ion-item>
-
+        <div class="date">{{ item.date }}</div>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 
+  <div class="empty-state" *ngIf="history.length === 0">
+    <h2>Nenhuma pesquisa encontrada</h2>
+
+    <p>Faça uma busca para criar seu histórico.</p>
+  </div>
 </ion-content>

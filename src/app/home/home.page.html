@@ -1,87 +1,119 @@
-<ion-header>
+<ion-header collapse="fade">
   <ion-toolbar>
-    <ion-title> Buscador de Universidades </ion-title>
+    <ion-title>
+      🌎 AngularUniversity
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-item>
-    <ion-input label="País" labelPlacement="floating" [(ngModel)]="country">
-    </ion-input>
-  </ion-item>
+<ion-content class="home-content">
 
-<ion-button
-  expand="block"
-  class="ion-margin-top"
-  (click)="searchUniversities()">
+  <div class="hero">
 
-  <ion-icon
-    name="search-outline"
-    slot="start">
-  </ion-icon>
+    <p class="greeting">
+      Bem-vindo 👋
+    </p>
 
-  Buscar
+    <h1>
+      Explore universidades
+      <span>pelo mundo todo</span>
+    </h1>
 
-</ion-button>
+  </div>
 
-<h2 class="ion-padding-top">
-  Menu
-</h2>
+  <div class="search-section">
 
-<ion-card button routerLink="/favorites">
+    <h3>BUSCAR POR PAÍS</h3>
 
-  <ion-card-header>
-    <ion-card-title>
-      ⭐ Favoritos
-    </ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    Visualizar universidades favoritas
-  </ion-card-content>
-
-</ion-card>
-
-<ion-card button routerLink="/history">
-
-  <ion-card-header>
-    <ion-card-title>
-      🕒 Histórico
-    </ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    Consultar pesquisas realizadas
-  </ion-card-content>
-
-</ion-card>
-
-<ion-card button routerLink="/about">
-
-  <ion-card-header>
-    <ion-card-title>
-      ℹ️ Sobre
-    </ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    Informações do projeto
-  </ion-card-content>
-
-</ion-card>
-
-  <ion-spinner *ngIf="loading" class="ion-margin-top"> </ion-spinner>
-
-  <ion-list *ngIf="universities.length">
-    <ion-item *ngFor="let university of universities">
-      <ion-label>
-        <h2>{{ university.name }}</h2>
-        <p>{{ university.country }}</p>
-
-        <a [href]="university.web_pages[0]" target="_blank">
-          {{ university.web_pages[0] }}
-        </a>
-      </ion-label>
+    <ion-item>
+      <ion-input
+        placeholder="Ex: Brazil, United States..."
+        [(ngModel)]="country">
+      </ion-input>
     </ion-item>
-  </ion-list>
+
+    <ion-button
+      expand="block"
+      (click)="searchUniversities()">
+
+      <ion-icon
+        name="search-outline"
+        slot="start">
+      </ion-icon>
+
+      Buscar universidades
+
+    </ion-button>
+
+  </div>
+
+  <div class="quick-access">
+
+    <h2>Acesso rápido</h2>
+
+    <ion-card button routerLink="/favorites">
+
+      <ion-card-content>
+
+        <div class="card-row">
+
+          <div class="icon favorite">
+            ❤️
+          </div>
+
+          <div>
+            <h3>Favoritos</h3>
+            <p>Universidades salvas</p>
+          </div>
+
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card button routerLink="/history">
+
+      <ion-card-content>
+
+        <div class="card-row">
+
+          <div class="icon history">
+            🕒
+          </div>
+
+          <div>
+            <h3>Histórico</h3>
+            <p>Pesquisas recentes</p>
+          </div>
+
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card button routerLink="/about">
+
+      <ion-card-content>
+
+        <div class="card-row">
+
+          <div class="icon about">
+            ℹ️
+          </div>
+
+          <div>
+            <h3>Sobre o projeto</h3>
+            <p>Informações do app</p>
+          </div>
+
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+
 </ion-content>

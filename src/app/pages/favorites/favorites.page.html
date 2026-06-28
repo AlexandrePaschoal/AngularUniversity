@@ -1,41 +1,80 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Favoritos
+      ⭐ Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-list>
+  <div class="page-header">
 
-    <ion-item
-      *ngFor="let university of favorites">
+    <p class="subtitle">
+      Universidades salvas
+    </p>
 
-      <ion-label>
+    <h1>
+      Seus
+      <span>favoritos</span>
+    </h1>
 
-        <h2>
-          {{ university.name }}
-        </h2>
+  </div>
 
-        <p>
-          {{ university.country }}
-        </p>
+  <ion-list *ngIf="favorites.length">
 
-      </ion-label>
+    <ion-card
+      *ngFor="let university of favorites"
+      class="favorite-card">
 
-      <ion-button
-        color="danger"
-        slot="end"
-        (click)="removeFavorite(university.name)">
+      <ion-card-content>
 
-        🗑️
+        <div class="card-header">
 
-      </ion-button>
+          <div>
 
-    </ion-item>
+            <h2>
+              {{ university.name }}
+            </h2>
+
+            <p>
+              {{ university.country }}
+            </p>
+
+          </div>
+
+          <div class="favorite-icon">
+            ⭐
+          </div>
+
+        </div>
+
+        <a
+          [href]="university.web_pages[0]"
+          target="_blank">
+
+          {{ university.web_pages[0] }}
+
+        </a>
+
+      </ion-card-content>
+
+    </ion-card>
 
   </ion-list>
+
+  <div
+    class="empty-state"
+    *ngIf="favorites.length === 0">
+
+    <h2>
+      Nenhum favorito
+    </h2>
+
+    <p>
+      Adicione universidades na página de resultados.
+    </p>
+
+  </div>
 
 </ion-content>
