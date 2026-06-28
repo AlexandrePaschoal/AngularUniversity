@@ -1,19 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      {{ country }}
-    </ion-title>
-      <ion-item>
-          <ion-input
-            label="Filtrar universidade"
-            labelPlacement="floating"
-            [(ngModel)]="searchTerm"
-            (ionInput)="filterUniversities()">
-          </ion-input>
-      </ion-item>
-    <ion-segment
-      (ionChange)="sortUniversities($event.detail.value)">
+    <ion-title> {{ country }} </ion-title>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> 📊 Estatísticas </ion-card-title>
+      </ion-card-header>
 
+      <ion-card-content>
+        <p>Universidades encontradas: {{ totalUniversities }}</p>
+
+        <p>Domínios únicos: {{ totalDomains }}</p>
+
+        <p>Favoritos salvos: {{ totalFavorites }}</p>
+      </ion-card-content>
+    </ion-card>
+    <ion-item>
+      <ion-input
+        label="Filtrar universidade"
+        labelPlacement="floating"
+        [(ngModel)]="searchTerm"
+        (ionInput)="filterUniversities()"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-segment (ionChange)="sortUniversities($event.detail.value)">
       <ion-segment-button value="asc">
         <ion-label>A-Z</ion-label>
       </ion-segment-button>
@@ -21,39 +31,26 @@
       <ion-segment-button value="desc">
         <ion-label>Z-A</ion-label>
       </ion-segment-button>
-
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <ion-list>
-
     <ion-item *ngFor="let university of filteredUniversities">
-
       <ion-label>
         <h2>{{ university.name }}</h2>
 
         <p>{{ university.country }}</p>
 
-        <a
-          [href]="university.web_pages[0]"
-          target="_blank">
+        <a [href]="university.web_pages[0]" target="_blank">
           {{ university.web_pages[0] }}
         </a>
-
       </ion-label>
 
-      <ion-button
-        slot="end"
-        fill="clear"
-        (click)="addFavorite(university)">
+      <ion-button slot="end" fill="clear" (click)="addFavorite(university)">
         ⭐
       </ion-button>
-
     </ion-item>
-
   </ion-list>
-
 </ion-content>

@@ -14,6 +14,10 @@ export class ResultsPage implements OnInit {
   country: string = '';
   searchTerm: string = '';
 
+  totalUniversities = 0;
+  totalDomains = 0;
+  totalFavorites = 0;
+
   constructor(private favoritesService: FavoritesService) {}
 
   addFavorite(university: University) {
@@ -44,6 +48,20 @@ export class ResultsPage implements OnInit {
     }
   }
 
+  loadStatistics() {
+    this.totalUniversities = this.universities.length;
+
+    const domains = new Set<string>();
+
+    this.universities.forEach((university) => {
+      university.domains.forEach((domain) => domains.add(domain));
+    });
+
+    this.totalDomains = domains.size;
+
+    this.totalFavorites = this.favoritesService.getFavorites().length;
+  }
+
   ngOnInit(): void {
     const navigation = history.state;
 
@@ -52,5 +70,7 @@ export class ResultsPage implements OnInit {
     this.filteredUniversities = [...this.universities];
 
     this.country = navigation.country || '';
+
+    this.loadStatistics();
   }
 }
