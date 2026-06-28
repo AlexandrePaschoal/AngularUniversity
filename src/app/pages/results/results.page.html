@@ -11,6 +11,18 @@
             (ionInput)="filterUniversities()">
           </ion-input>
       </ion-item>
+    <ion-segment
+      (ionChange)="sortUniversities($event.detail.value)">
+
+      <ion-segment-button value="asc">
+        <ion-label>A-Z</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="desc">
+        <ion-label>Z-A</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 

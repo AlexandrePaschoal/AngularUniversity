@@ -32,6 +32,18 @@ export class ResultsPage implements OnInit {
     );
   }
 
+  sortUniversities(order: string | number | undefined) {
+    if (order === undefined) {
+      return;
+    }
+
+    if (order === 'asc') {
+      this.filteredUniversities.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (order === 'desc') {
+      this.filteredUniversities.sort((a, b) => b.name.localeCompare(a.name));
+    }
+  }
+
   ngOnInit(): void {
     const navigation = history.state;
 
