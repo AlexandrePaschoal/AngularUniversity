@@ -1,22 +1,26 @@
-/* Tema */
+/* ========================================
+   TEMA GERAL
+======================================== */
 
 ion-content {
-  --background: #0D1220;
+  --background: #0d1220;
 }
 
 ion-toolbar {
-  --background: #0D1220;
-  --color: white;
+  --background: #0d1220;
+  --color: #ffffff;
 }
 
 ion-back-button {
-  --color: white;
+  --color: #ffffff;
 }
 
-/* Container */
+
+/* ========================================
+   CONTAINER
+======================================== */
 
 .about-container {
-
   max-width: 900px;
 
   margin: 0 auto;
@@ -24,107 +28,236 @@ ion-back-button {
   text-align: center;
 }
 
-/* Logo */
+
+/* ========================================
+   LOGO
+======================================== */
 
 .logo {
+  display: flex;
 
-  font-size: 80px;
+  align-items: center;
+  justify-content: center;
 
   margin-top: 20px;
-
   margin-bottom: 10px;
 }
 
-/* Título */
+.logo ion-icon {
+  color: #3b6fff;
+
+  font-size: 56px;
+}
+
+
+/* ========================================
+   TÍTULO
+======================================== */
 
 h1 {
-
-  color: white;
+  color: #ffffff;
 
   font-size: 42px;
-
   font-weight: 700;
 
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
 h1 span {
-  color: #3B6FFF;
+  color: #3b6fff;
 }
 
-/* Subtítulo */
+
+/* ========================================
+   SUBTÍTULO
+======================================== */
 
 .tagline {
-
-  color: #94A3B8;
+  color: #94a3b8;
 
   font-size: 18px;
 
   margin-bottom: 35px;
 }
 
-/* Cards */
+
+/* ========================================
+   CARDS
+======================================== */
 
 .about-card {
-
   background: linear-gradient(
     135deg,
     #111827,
-    #1A2238
+    #1a2238
   );
+
+  border: 1px solid rgba(59, 111, 255, 0.15);
 
   border-radius: 20px;
 
-  border: 1px solid
-    rgba(59,111,255,.15);
-
   box-shadow:
     0 8px 20px
-    rgba(0,0,0,.25);
+    rgba(0, 0, 0, 0.25);
 
   margin-bottom: 20px;
 
   text-align: left;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.about-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(59, 111, 255, 0.3);
+
+  box-shadow:
+    0 12px 24px
+    rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========================================
+   TÍTULO DOS CARDS
+======================================== */
 
 .about-card ion-card-title {
-
-  color: white;
+  color: #ffffff;
 
   font-size: 20px;
+  font-weight: 600;
 }
+
+.section-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.section-title ion-icon {
+  color: #3b6fff;
+
+  font-size: 22px;
+
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   CONTEÚDO DOS CARDS
+======================================== */
 
 .about-card ion-card-content {
-
-  color: #94A3B8;
+  color: #94a3b8;
 
   font-size: 16px;
+
+  line-height: 1.6;
 }
 
-/* Tecnologias */
+
+/* ========================================
+   TECNOLOGIAS
+======================================== */
 
 .tech-item {
+  display: flex;
 
-  padding: 8px 0;
+  align-items: center;
 
-  color: white;
+  gap: 10px;
+
+  padding: 9px 0;
+
+  color: #ffffff;
+
+  font-weight: 500;
 }
 
-/* Desenvolvedor */
+.tech-item ion-icon {
+  color: #3b6fff;
 
-h3 {
+  font-size: 20px;
 
-  color: white;
+  flex-shrink: 0;
+}
+
+.tech-item svg {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   DESENVOLVEDOR
+======================================== */
+
+.about-card h3 {
+  color: #ffffff;
 
   margin-top: 0;
+  margin-bottom: 8px;
+
+  font-size: 20px;
+  font-weight: 600;
 }
 
-/* Responsividade */
+.about-card h3 + p {
+  margin-bottom: 0;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
 
 @media (min-width: 768px) {
 
   .about-card {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+  .logo {
+    margin-top: 12px;
+  }
+
+  .logo ion-icon {
+    font-size: 48px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .tagline {
+    font-size: 16px;
+
+    margin-bottom: 25px;
+  }
+
+  .about-card ion-card-title {
+    font-size: 18px;
+  }
+
+  .about-card ion-card-content {
+    font-size: 15px;
   }
 }

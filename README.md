@@ -1,6 +1,6 @@
-# 🎓​AngularUniversity
+# AngularUniversity
 
-## 📱 Preview
+## Preview
 
 <p align="center">
   <img
@@ -13,33 +13,33 @@
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-### 🔎 Busca de universidades
+###  Busca de universidades
 
 - Pesquisa de universidades por país
 - Consumo de API REST pública
 - Exibição dinâmica dos resultados
 
-### 📊 Dashboard
+###  Dashboard
 
 - Total de universidades encontradas
 - Quantidade de domínios únicos
 - Total de favoritos salvos
 
-### ⭐ Favoritos
+###  Favoritos
 
 - Adicionar universidades aos favoritos
 - Remover favoritos
 - Persistência utilizando LocalStorage
 
-### 🕒 Histórico
+###  Histórico
 
 - Armazenamento do histórico de pesquisas
 - Exibição da quantidade de resultados
 - Limpeza completa do histórico
 
-### 🎨 Interface
+###  Interface
 
 - Tema dark customizado
 - Design responsivo
@@ -87,7 +87,7 @@ https://universities.hipolabs.com
 
 ---
 
-## 🚀 Como executar o projeto
+## Como executar o projeto
 
 Clone o repositório:
 
@@ -149,7 +149,7 @@ Durante o desenvolvimento deste projeto foram aplicados conceitos como:
 ---
 
 
-## 👨‍💻 Autor
+##  Autor
 
 **Alexandre Paschoal Teles de Andrade** - Matricula: 01780463
 

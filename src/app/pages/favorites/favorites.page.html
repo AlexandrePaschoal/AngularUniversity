@@ -7,7 +7,7 @@
     </ion-buttons>
 
     <ion-title>
-      ⭐ Favoritos
+      Favoritos
     </ion-title>
 
   </ion-toolbar>
@@ -15,10 +15,12 @@
 
 <ion-content class="ion-padding">
 
+  <!-- Cabeçalho -->
+
   <div class="page-header">
 
     <p class="subtitle">
-      Universidades salvas
+      Suas universidades preferidas estão aqui!
     </p>
 
     <h1>
@@ -27,6 +29,9 @@
     </h1>
 
   </div>
+
+
+  <!-- Lista de favoritos -->
 
   <ion-list *ngIf="favorites.length">
 
@@ -38,27 +43,49 @@
 
         <div class="card-header">
 
-          <div>
+          <div class="card-info">
 
-            <h2>
+            <!-- Universidade -->
+
+            <h2 class="university-name">
+
+              <ion-icon
+                name="school-outline">
+              </ion-icon>
+
               {{ university.name }}
+
             </h2>
 
-            <p>
+
+            <!-- País -->
+
+            <p class="university-country">
+
+              <ion-icon
+                name="location-outline">
+              </ion-icon>
+
               {{ university.country }}
+
             </p>
 
           </div>
+
+
+          <!-- Ações -->
 
           <div class="actions">
 
             <ion-button
               fill="clear"
               color="danger"
+              aria-label="Remover dos favoritos"
               (click)="removeFavorite(university.name)">
 
               <ion-icon
-                name="trash-outline">
+                name="trash-outline"
+                slot="icon-only">
               </ion-icon>
 
             </ion-button>
@@ -67,9 +94,18 @@
 
         </div>
 
+
+        <!-- Site -->
+
         <a
+          class="university-link"
           [href]="university.web_pages[0]"
-          target="_blank">
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <ion-icon
+            name="open-outline">
+          </ion-icon>
 
           {{ university.web_pages[0] }}
 
@@ -81,9 +117,17 @@
 
   </ion-list>
 
+
+  <!-- Estado vazio -->
+
   <div
     class="empty-state"
     *ngIf="favorites.length === 0">
+
+    <ion-icon
+      class="empty-icon"
+      name="heart-outline">
+    </ion-icon>
 
     <h2>
       Nenhum favorito encontrado
@@ -92,6 +136,19 @@
     <p>
       Adicione universidades na página de resultados.
     </p>
+
+    <ion-button
+      routerLink="/home"
+      fill="outline">
+
+      <ion-icon
+        name="search-outline"
+        slot="start">
+      </ion-icon>
+
+      Buscar universidades
+
+    </ion-button>
 
   </div>
 

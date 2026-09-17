@@ -1,88 +1,60 @@
 <ion-header>
   <ion-toolbar>
-
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home">
-      </ion-back-button>
+      <ion-back-button defaultHref="/home"> </ion-back-button>
     </ion-buttons>
 
-    <ion-title>
-      Resultados
-    </ion-title>
-
+    <ion-title> Resultados </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <!-- Dashboard -->
 
   <ion-grid class="stats-grid">
-
     <ion-row>
+      <!-- Universidades -->
 
       <ion-col size="12" size-md="4">
-
         <ion-card class="stat-card">
-
           <ion-card-content>
+            <ion-icon class="stat-icon" name="school-outline"> </ion-icon>
 
-            <div class="number">
-              {{ totalUniversities }}
-            </div>
+            <div class="number">{{ totalUniversities }}</div>
 
-            <div class="label">
-              Universidades
-            </div>
-
+            <div class="label">Universidades</div>
           </ion-card-content>
-
         </ion-card>
-
       </ion-col>
+
+      <!-- Domínios -->
 
       <ion-col size="12" size-md="4">
-
         <ion-card class="stat-card">
-
           <ion-card-content>
+            <ion-icon class="stat-icon" name="globe-outline"> </ion-icon>
 
-            <div class="number">
-              {{ totalDomains }}
-            </div>
+            <div class="number">{{ totalDomains }}</div>
 
-            <div class="label">
-              Domínios
-            </div>
-
+            <div class="label">Domínios</div>
           </ion-card-content>
-
         </ion-card>
-
       </ion-col>
+
+      <!-- Favoritos -->
 
       <ion-col size="12" size-md="4">
-
         <ion-card class="stat-card">
-
           <ion-card-content>
+            <ion-icon class="stat-icon" name="star-outline"> </ion-icon>
 
-            <div class="number">
-              {{ totalFavorites }}
-            </div>
+            <div class="number">{{ totalFavorites }}</div>
 
-            <div class="label">
-              Favoritos
-            </div>
-
+            <div class="label">Favoritos</div>
           </ion-card-content>
-
         </ion-card>
-
       </ion-col>
-
     </ion-row>
-
   </ion-grid>
 
   <!-- Busca local -->
@@ -90,80 +62,77 @@
   <ion-searchbar
     placeholder="Filtrar universidade..."
     [(ngModel)]="searchTerm"
-    (ionInput)="filterUniversities()">
-
+    (ionInput)="filterUniversities()"
+  >
   </ion-searchbar>
 
   <!-- Ordenação -->
 
   <ion-segment
     value="asc"
-    (ionChange)="sortUniversities($event.detail.value?.toString())">
-
+    (ionChange)="sortUniversities($event.detail.value?.toString())"
+  >
     <ion-segment-button value="asc">
-
-      <ion-label>
-        A-Z
-      </ion-label>
-
+      <ion-label> A-Z </ion-label>
     </ion-segment-button>
 
     <ion-segment-button value="desc">
-
-      <ion-label>
-        Z-A
-      </ion-label>
-
+      <ion-label> Z-A </ion-label>
     </ion-segment-button>
-
   </ion-segment>
 
   <!-- Lista de universidades -->
 
   <ion-card
     *ngFor="let university of filteredUniversities"
-    class="university-card">
-
+    class="university-card"
+  >
     <ion-card-content>
-
       <div class="card-header">
-
         <div class="card-info">
+          <!-- Nome -->
 
-          <h2>
+          <h2 class="university-name">
+            <ion-icon name="school-outline"> </ion-icon>
+
             {{ university.name }}
           </h2>
 
-          <p>
+          <!-- País -->
+
+          <p class="university-country">
+            <ion-icon name="location-outline"> </ion-icon>
+
             {{ university.country }}
           </p>
 
+          <!-- Site -->
+
           <a
+            class="university-link"
             [href]="university.web_pages[0]"
-            target="_blank">
+            target="_blank"
+          >
+            <ion-icon name="open-outline"> </ion-icon>
 
             {{ university.web_pages[0] }}
-
           </a>
-
         </div>
+
+        <!-- Favoritar -->
 
         <ion-button
           fill="clear"
           color="warning"
-          (click)="addFavorite(university)">
+          (click)="toggleFavorite(university)">
 
           <ion-icon
-            name="star"
-            slot="icon-only">
+            [name]="isFavorite(university) ? 'star' : 'star-outline'"
+            slot="icon-only"> 
           </ion-icon>
-
+          
         </ion-button>
-
       </div>
-
     </ion-card-content>
-
   </ion-card>
-
 </ion-content>

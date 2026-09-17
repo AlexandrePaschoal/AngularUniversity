@@ -166,3 +166,43 @@ p {
     filter: blur(0);
   }
 }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  ion-icon {
+    font-size: 26px;
+    color: #ffffff;
+  }
+}
+
+.brand-text {
+  display: flex;
+  gap: 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 32px;
+  }
+}
+
+.icon.favorite,
+.icon.history,
+.icon.about {
+  background: rgba(61, 111, 255, 0.12);
+
+  ion-icon {
+    color: #3d6fff;
+  }
+}
+
+ion-card:hover .icon {
+  background: rgba(61, 111, 255, 0.2);
+}

@@ -11,6 +11,7 @@ import { FavoritesService } from '../../services/favorites';
 export class ResultsPage implements OnInit {
   universities: University[] = [];
   filteredUniversities: University[] = [];
+
   country: string = '';
   searchTerm: string = '';
 
@@ -20,14 +21,32 @@ export class ResultsPage implements OnInit {
 
   constructor(private favoritesService: FavoritesService) {}
 
-  addFavorite(university: University) {
-    this.favoritesService.addFavorite(university);
+  // Verifica se a universidade já está nos favoritos
+  isFavorite(university: University): boolean {
+    return this.favoritesService
+      .getFavorites()
+      .some((favorite) => favorite.name === university.name);
+  }
+
+  // Adiciona ou remove dos favoritos
+  toggleFavorite(university: University) {
+    if (this.isFavorite(university)) {
+      this.favoritesService.removeFavorite(university.name);
+    } else {
+      this.favoritesService.addFavorite(university);
+    }
+
+    this.updateFavoritesCount();
+  }
+
+  // Atualiza o contador de favoritos
+  updateFavoritesCount() {
+    this.totalFavorites = this.favoritesService.getFavorites().length;
   }
 
   filterUniversities() {
     if (!this.searchTerm) {
       this.filteredUniversities = [...this.universities];
-
       return;
     }
 
@@ -59,7 +78,7 @@ export class ResultsPage implements OnInit {
 
     this.totalDomains = domains.size;
 
-    this.totalFavorites = this.favoritesService.getFavorites().length;
+    this.updateFavoritesCount();
   }
 
   ngOnInit(): void {

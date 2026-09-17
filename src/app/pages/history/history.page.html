@@ -1,38 +1,100 @@
 <ion-header>
   <ion-toolbar>
+
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"> </ion-back-button>
+      <ion-back-button defaultHref="/home">
+      </ion-back-button>
     </ion-buttons>
 
-    <ion-title> 🕒 Histórico </ion-title>
+    <ion-title>
+      Histórico
+    </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <!-- Cabeçalho -->
+
   <div class="page-header">
-    <p class="subtitle">Pesquisas realizadas</p>
+
+    <p class="subtitle">
+      Pesquisas realizadas
+    </p>
 
     <h1>
       Seu
       <span>histórico</span>
     </h1>
+
   </div>
 
-  <ion-list *ngIf="history.length">
-    <ion-card *ngFor="let item of history" class="history-card">
-      <ion-card-content>
-        <div class="card-header">
-          <div>
-            <h2>{{ item.country }}</h2>
 
-            <p>{{ item.total }} universidades encontradas</p>
+  <!-- Lista do histórico -->
+
+  <ion-list *ngIf="history.length">
+
+    <ion-card
+      *ngFor="let item of history"
+      class="history-card">
+
+      <ion-card-content>
+
+        <div class="card-header">
+
+          <div class="card-info">
+
+            <!-- País pesquisado -->
+
+            <h2 class="history-country">
+
+              <ion-icon
+                name="location-outline">
+              </ion-icon>
+
+              {{ item.country }}
+
+            </h2>
+
+
+            <!-- Quantidade de universidades -->
+
+            <p class="history-total">
+
+              <ion-icon
+                name="school-outline">
+              </ion-icon>
+
+              {{ item.total }} universidades encontradas
+
+            </p>
+
           </div>
+
         </div>
 
-        <div class="date">{{ item.date }}</div>
+
+        <!-- Data -->
+
+        <div class="date">
+
+          <ion-icon
+            name="calendar-outline">
+          </ion-icon>
+
+          {{ item.date }}
+
+        </div>
+
       </ion-card-content>
+
     </ion-card>
+
   </ion-list>
+
+
+  <!-- Limpar histórico -->
 
   <ion-button
     *ngIf="history.length"
@@ -40,16 +102,50 @@
     fill="outline"
     color="danger"
     class="clear-history-btn"
-    (click)="clearHistory()"
-  >
-    <ion-icon name="trash-outline" slot="start"> </ion-icon>
+    (click)="clearHistory()">
+
+    <ion-icon
+      name="trash-outline"
+      slot="start">
+    </ion-icon>
 
     Limpar histórico
+
   </ion-button>
 
-  <div class="empty-state" *ngIf="history.length === 0">
-    <h2>Nenhuma pesquisa encontrada</h2>
 
-    <p>Faça uma busca para criar seu histórico.</p>
+  <!-- Estado vazio -->
+
+  <div
+    class="empty-state"
+    *ngIf="history.length === 0">
+
+    <ion-icon
+      class="empty-icon"
+      name="time-outline">
+    </ion-icon>
+
+    <h2>
+      Nenhuma pesquisa encontrada
+    </h2>
+
+    <p>
+      Faça uma busca para criar seu histórico.
+    </p>
+
+    <ion-button
+      routerLink="/home"
+      fill="outline">
+
+      <ion-icon
+        name="search-outline"
+        slot="start">
+      </ion-icon>
+
+      Buscar universidades
+
+    </ion-button>
+
   </div>
+
 </ion-content>
